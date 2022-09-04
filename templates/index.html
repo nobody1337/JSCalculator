@@ -10,11 +10,25 @@
     <!--  Responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
     <title>Calculator</title>
 
     <script>
         function appendOperation(operation) {
             document.getElementById('resultArea').innerHTML +=operation;
+        }
+        function calculateResult() {
+            let container = document.getElementById('resultArea');
+            let result = eval(container.innerHTML);
+            container.innerHTML = result;
+        }
+        function deleteLast() {
+            let container = document.getElementById('resultArea');
+            if (container.innerHTML.endsWith(' ')) {
+                container.innerHTML = container.innerHTML.slice(0, -3);
+            } else {
+                container.innerHTML = container.innerHTML.slice(0, -1);
+            }
         }
     </script>
 
@@ -23,33 +37,39 @@
 <body>
 
     <div id="resultArea">
-            1234
+
     </div>
 
 <table>
     <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td onclick="deleteLast()" class="highlight">DEL</td>
+    </tr>
+    <tr>
         <td onclick="appendOperation(7)">7</td>
-        <td>8</td>
-        <td>9</td>
-        <td class="highlight">/</td>
+        <td onclick="appendOperation(8)">8</td>
+        <td onclick="appendOperation(9)">9</td>
+        <td onclick="appendOperation(' / ')" class="highlight">/</td>
     </tr>
     <tr>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-        <td class="highlight">x</td>
+        <td onclick="appendOperation(4)">4</td>
+        <td onclick="appendOperation(5)">5</td>
+        <td onclick="appendOperation(6)">6</td>
+        <td onclick="appendOperation(' * ')" class="highlight">x</td>
     </tr>
     <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td class="highlight">+</td>
+        <td onclick="appendOperation(1)">1</td>
+        <td onclick="appendOperation(2)">2</td>
+        <td onclick="appendOperation(3)">3</td>
+        <td onclick="appendOperation(' + ')" class="highlight">+</td>
     </tr>
     <tr>
-        <td>0</td>
-        <td>,</td>
-        <td id="result">=</td>
-        <td class="highlight">-</td>
+        <td onclick="appendOperation(0)">0</td>
+        <td onclick="appendOperation('.')">,</td>
+        <td onclick="calculateResult()" id="result">=</td>
+        <td onclick="appendOperation(' - ')" class="highlight">-</td>
     </tr>
 </table>
 </body>
