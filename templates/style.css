@@ -1,0 +1,42 @@
+body{
+    font-family: Yanone Kaffeesatz;
+    color: aliceblue;
+    margin: 0;
+}
+table{
+    width: 100%;
+    /*1vh=1%der höhe*/
+    height: 70vh;
+    background-color: #1C1C1C;
+}
+td{
+    background-color: #151515;
+    text-align: center;
+    width: 25%;
+    font-size: 30px;
+}
+td:hover{
+    background-color: #1C1C1C;
+    cursor: pointer;
+
+}
+#resultArea{
+    height: 30vh;
+    background-color: #424242;
+    font-size: 95px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 24px;
+    box-sizing: border-box;
+
+}
+#result{
+    background-color: rgba(67,55,236);
+}
+#result:hover{
+    background-color: rgba(110,101,235);
+}
+.highlight{
+    background-color: rgba(25,25,25);
+}
